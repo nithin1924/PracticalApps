@@ -10,10 +10,9 @@ namespace Northwind.EntityModels
 {
     public static class NorthwindContextExtensions
     {
-        public static IServiceCollection AddNorthwindContext(
- this IServiceCollection services, // The type to extend.
- string relativePath = "..",
- string databaseName = "Northwind.db")
+        public static IServiceCollection AddNorthwindContext(this IServiceCollection services, // The type to extend.
+                                                             string relativePath = "..",
+                                                             string databaseName = "Northwind.db")
         {
             string path = Path.Combine(relativePath, databaseName);
             path = Path.GetFullPath(path);
@@ -23,6 +22,7 @@ namespace Northwind.EntityModels
                 throw new FileNotFoundException(
                 message: $"{path} not found.", fileName: path);
             }
+
             services.AddDbContext<NorthwindContext>(options =>
             {
                 // Data Source is the modern equivalent of Filename.
@@ -34,6 +34,7 @@ namespace Northwind.EntityModels
             // issues in Blazor server-side projects.
             contextLifetime: ServiceLifetime.Transient,
             optionsLifetime: ServiceLifetime.Transient);
+
             return services;
         }
     }

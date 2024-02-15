@@ -46,7 +46,7 @@ app.UseDefaultFiles(); // index.html, default.html, and so on.
 app.UseStaticFiles();
 
 app.MapRazorPages();
-app.MapGet("/hello", () => $"Environment is {app.Environment.EnvironmentName}");
+app.MapGet("/hello", () => $"Environment is {app.Environment.EnvironmentName}").ShortCircuit();
 
 #endregion
 

@@ -2,7 +2,8 @@ using Microsoft.AspNetCore.Mvc.Formatters; // To use IOutputFormatter.
 using Northwind.EntityModels; // To use AddNorthwindContext method.
 using static System.Console;
 using Microsoft.Extensions.Caching.Memory; // To use IMemoryCache and so on.
-using Northwind.WebApi.Repositories; // To use ICustomerRepository.
+using Northwind.WebApi.Repositories;
+using Northwind.WebApi.Controllers; // To use ICustomerRepository.
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -54,6 +55,8 @@ if (app.Environment.IsDevelopment())
 	app.UseSwaggerUI();
 }
 
+var v = app.Services.GetRequiredService<IMemoryCache>();
+
 app.UseHttpsRedirection();
 
 app.UseAuthorization();
@@ -61,3 +64,4 @@ app.UseAuthorization();
 app.MapControllers();
 
 app.Run();
+return;

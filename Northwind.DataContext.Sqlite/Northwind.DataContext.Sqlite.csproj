@@ -5,10 +5,10 @@
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
   </PropertyGroup>
-
 	<ItemGroup>
-		<Using Include="System.Console" Static="true" />
+	<Using Include="System.Console" Static="true" />
 	</ItemGroup>
+	
 	<ItemGroup>
 		<PackageReference Version="8.0.0"
 		Include="Microsoft.EntityFrameworkCore.Sqlite" />
